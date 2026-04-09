@@ -1,0 +1,61 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### macOS ###
+.DS_Store
+
+### Windows ###
+Thumbs.db
+
+### Logs ###
+*.log
+logs/
+
+### Environment Variables (CRÍTICO) ###
+.env
+.env.local
+.env.*.local
+
+### Credentials/Keys ###
+*.pem
+*.key
+secrets/
+credentials/
+
+# application.properties/yaml - SÍ SUBIR, pero usar variables de entorno
+# Ver: https://stackoverflow.com/a/23083556
+### Application properties con contraseñas ###
+# Si tienes archivos con passwords, excluyelos
+# application-prod.properties
+# application-local.properties
