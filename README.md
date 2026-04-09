@@ -36,21 +36,49 @@ API REST completa para gestionar una biblioteca multimedia con libros, DVDs, aut
 Crea una base de datos PostgreSQL:
 
 ```sql
-CREATE DATABASE biblioteca_db;
+CREATE DATABASE Sistema_Gestion_Hospital;
 ```
 
-### 2. Variables de Entorno (Opcional)
+### 2. Variables de Entorno
 
-Puedes configurar la base de datos en `src/main/resources/application.properties`:
+La aplicación usa variables de entorno para las credenciales de la base de datos.
 
-```properties
-# Base de datos
-spring.datasource.url=jdbc:postgresql://localhost:5432/biblioteca_db
-spring.datasource.username=tu_usuario
-spring.datasource.password=tu_contraseña
+**Crea un archivo `.env` en la raíz del proyecto:**
 
-# Puerto (por defecto: 8080)
-server.port=8080
+```env
+DB_USERNAME=postgres
+DB_PASSWORD=tu_contraseña
+```
+
+**O configura las variables en tu sistema:**
+
+```bash
+# Linux/Mac
+export DB_USERNAME=postgres
+export DB_PASSWORD=tu_contraseña
+
+# Windows (CMD)
+set DB_USERNAME=postgres
+set DB_PASSWORD=tu_contraseña
+```
+
+**O configura en IntelliJ:**
+1. Run → Edit Configurations
+2. Environment variables: `DB_USERNAME=postgres;DB_PASSWORD=tu_contraseña`
+
+### 3. Archivo application.yaml
+
+El archivo `src/main/resources/application.yaml` ya está configurado con variables de entorno:
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Sistema_Gestion_Hospital
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD}
+
+server:
+  port: 8080
 ```
 
 ---
@@ -341,7 +369,7 @@ mvn test
 
 ## 📧 Autor
 
-**Jonathan Flores** - [notjona19@gmail.com](mailto:tu-email@ejemplo.com)
+**Jonathan Flores** - [notjona19@gmail.com](mailto:notjona19@gmail.com)
 
 ---
 
